@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-      Dockerhub_username =  credentials('DOCKER_HUB_USERNAME') 
+        Dockerhub_username = credentials('DOCKER_HUB_USERNAME') 
     }
     stages {
         stage('Build') {
