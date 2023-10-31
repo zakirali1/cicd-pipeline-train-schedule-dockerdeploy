@@ -17,7 +17,7 @@ pipeline {
             }
             steps {
                 script {
-                    app = docker.build("${DOCKER_HUB_USERNAME}/train-schedule") // Use correct syntax
+                    app = docker.build("zakirali1/train-schedule") // Use correct syntax
                     app.inside {
                         sh 'echo $(curl localhost:8080)'
                     }
