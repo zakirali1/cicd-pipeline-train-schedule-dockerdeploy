@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        Dockerhub_username = credentials('DOCKER_HUB_USERNAME') 
+        DOCKER_HUB_USERNAME = credentials('DOCKER_HUB_USERNAME') // Use the correct credential ID
     }
     stages {
         stage('Build') {
@@ -17,7 +17,7 @@ pipeline {
             }
             steps {
                 script {
-                    app = docker.build(${Dockerhub_username}/"train-schedule")
+                    app = docker.build("${DOCKER_HUB_USERNAME}/train-schedule") // Use correct syntax
                     app.inside {
                         sh 'echo $(curl localhost:8080)'
                     }
@@ -39,3 +39,4 @@ pipeline {
         }
     }   
 }
+
